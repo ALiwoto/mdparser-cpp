@@ -203,6 +203,10 @@ WotoMd *get_italic(const std::string value) {
 	return new WotoMd(toItalic(value));
 }
 
+WotoMd *get_mono(const std::string value) {
+	return new WotoMd(toMono(value));
+}
+
 WotoMd *get_bold(const std::string value) {
 	return new WotoMd(toBold(value));
 }
