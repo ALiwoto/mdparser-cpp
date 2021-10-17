@@ -19,7 +19,7 @@
 
 #pragma once
 
-#include <iostream>
+#include <string>
 
 
 static __always_inline bool IsSpecial(const char value)
@@ -75,7 +75,7 @@ static __always_inline std::string toNormal(const std::string value)
 }
 
 static __always_inline std::string toNormal(const std::string value, 
-	const bool space)
+					    const bool space)
 {
 	return FixString(value) + (space ? " " : "");
 }
@@ -86,18 +86,18 @@ static __always_inline std::string toBold(const std::string value)
 }
 
 static __always_inline std::string toBold(const std::string value, 
-	const bool space)
+					  const bool space)
 {
 	return "*" + FixString(value) + (space ? "* " : "*");
 }
 
 static __always_inline std::string toUnderline(const std::string value)
 {
-	return "*" + FixString(value) + "*";
+	return "-" + FixString(value) + "-";
 }
 
 static __always_inline std::string toUnderline(const std::string value,
-	const bool space)
+					       const bool space)
 {
 	return "-" + FixString(value) + (space ? "- " : "-");
 }
@@ -108,7 +108,7 @@ static __always_inline std::string toItalic(const std::string value)
 }
 
 static __always_inline std::string toItalic(const std::string value, 
-	const bool space)
+					    const bool space)
 {
 	return "_" + FixString(value) + (space ? "_ " : "_");
 }
@@ -131,8 +131,7 @@ static __always_inline std::string toHyperLink(const std::string text,
 }
 
 static __always_inline std::string toHyperLink(const std::string text,
-	const std::string url,
-	bool space)
+					       const std::string url, bool space)
 {
 	return "[" + FixString(text) + "]" + "(" + FixString(url) + 
 		(space ? ") " : ")");
@@ -140,14 +139,15 @@ static __always_inline std::string toHyperLink(const std::string text,
 
 
 static __always_inline std::string toUserMention(const std::string text,
-	const long long id)
+						 const long long id)
 {
 	return "[" + FixString(text) + "]" + "(" + "tg://user?id=" + 
 		std::to_string(id) + ")";
 }
 
 static __always_inline std::string toUserMention(const std::string text,
-	const long long id, const bool space)
+						 const long long id,
+						 const bool space)
 {
 	return "[" + FixString(text) + "]" + "(" + "tg://user?id=" + 
 		std::to_string(id) + (space ? ") " : ")");
@@ -168,10 +168,10 @@ class WotoMd {
 	WotoMd *AppendBold(const std::string value, const bool space) const;
 	WotoMd *AppendHyperLink(const std::string text, const std::string url) const;
 	WotoMd *AppendHyperLink(const std::string text, const std::string url,
-		const bool space) const;
+				const bool space) const;
 	WotoMd *AppendUserMention(const std::string text, long long id) const;
 	WotoMd *AppendUserMention(const std::string text, long long id,
-		const bool space) const;
+				  const bool space) const;
 	WotoMd *AppendUnderline(const std::string value) const;
 	WotoMd *AppendUnderline(const std::string value, const bool space) const;
 
@@ -186,10 +186,10 @@ class WotoMd {
 	WotoMd *AppendBoldThis(const std::string value, const bool space);
 	WotoMd *AppendHyperLinkThis(const std::string text, const std::string url);
 	WotoMd *AppendHyperLinkThis(const std::string text, const std::string url,
-		const bool space);
+				    const bool space);
 	WotoMd *AppendUserMentionThis(const std::string text, long long id);
 	WotoMd *AppendUserMentionThis(const std::string text, long long id,
-		const bool space);
+				      const bool space);
 	WotoMd *AppendUnderlineThis(const std::string value);
 	WotoMd *AppendUnderlineThis(const std::string value, const bool space);
 

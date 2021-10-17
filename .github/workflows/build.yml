@@ -1,0 +1,49 @@
+name: Build test
+
+on:
+  # Trigger the workflow on push or pull requests.
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - cc: gcc
+            cxx: g++
+          - cc: clang
+            cxx: clang++
+
+    steps:
+    - name: Checkout source
+      uses: actions/checkout@v2
+
+    - name: Install Tools
+      run: |
+        sudo apt-get install make cmake gcc clang -y;
+
+    - name: Display tools version
+      run: |
+        ${{matrix.cc}} --version;
+        ${{matrix.cxx}} --version;
+        make --version;
+        cmake --version;
+
+    # Make sure the source can be built properly.
+    - name: Build
+      run: |
+        mkdir -vp build/ && \
+        cd build/ && \
+        cmake .. && \
+        make -j$(nproc) && \
+        cd ..;
+
+    - name: Run Tests
+      run: |
+        cd tests/ && \
+        make -j$(nproc) runtests && \
+        cd ..;
