@@ -16,7 +16,6 @@
  * from ALi woto.
  */
 
-#pragma once
 
 #include <iostream>
 #include "WotoMd.h"
