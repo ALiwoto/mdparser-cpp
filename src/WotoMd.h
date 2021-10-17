@@ -93,7 +93,7 @@ static __always_inline std::string toBold(const std::string value,
 
 static __always_inline std::string toUnderline(const std::string value)
 {
-	return "*" + FixString(value) + "*";
+	return "-" + FixString(value) + "-";
 }
 
 static __always_inline std::string toUnderline(const std::string value,
