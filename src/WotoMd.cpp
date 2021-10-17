@@ -61,6 +61,14 @@ WotoMd *WotoMd::AppendItalic(const std::string value, const bool space) const {
 	return new WotoMd(this->_value + toItalic(value, space));
 }
 
+WotoMd *WotoMd::AppendMono(const std::string value) const {
+	return new WotoMd(this->_value + toMono(value));
+}
+
+WotoMd *WotoMd::AppendMono(const std::string value, const bool space) const {
+	return new WotoMd(this->_value + toMono(value, space));
+}
+
 WotoMd *WotoMd::AppendBold(const std::string value) const {
 	return new WotoMd(this->_value + toBold(value));
 }
@@ -124,6 +132,17 @@ WotoMd *WotoMd::AppendItalicThis(const std::string value) {
 
 WotoMd *WotoMd::AppendItalicThis(const std::string value, const bool space) {
 	this->_value += toItalic(value, space);
+	return this;
+}
+
+WotoMd *WotoMd::AppendMonoThis(const std::string value) {
+	this->_value += toMono(value);
+	return this;
+}
+
+
+WotoMd *WotoMd::AppendMonoThis(const std::string value, const bool space) {
+	this->_value += toMono(value, space);
 	return this;
 }
 

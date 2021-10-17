@@ -162,6 +162,8 @@ class WotoMd {
 	WotoMd *AppendNormal(const std::string value, const bool space) const;
 	WotoMd *AppendItalic(const std::string value) const;
 	WotoMd *AppendItalic(const std::string value, const bool space) const;
+	WotoMd *AppendMono(const std::string value) const;
+	WotoMd *AppendMono(const std::string value, const bool space) const;
 	WotoMd *AppendBold(const std::string value) const;
 	WotoMd *AppendBold(const std::string value, const bool space) const;
 	WotoMd *AppendHyperLink(const std::string text, const std::string url) const;
@@ -178,6 +180,8 @@ class WotoMd {
 	WotoMd *AppendNormalThis(const std::string value, const bool space);
 	WotoMd *AppendItalicThis(const std::string value);
 	WotoMd *AppendItalicThis(const std::string value, const bool space);
+	WotoMd *AppendMonoThis(const std::string value);
+	WotoMd *AppendMonoThis(const std::string value, const bool space);
 	WotoMd *AppendBoldThis(const std::string value);
 	WotoMd *AppendBoldThis(const std::string value, const bool space);
 	WotoMd *AppendHyperLinkThis(const std::string text, const std::string url);
@@ -199,6 +203,7 @@ class WotoMd {
 
 WotoMd *get_normal(const std::string value);
 WotoMd *get_italic(const std::string value);
+WotoMd *get_mono(const std::string value);
 WotoMd *get_bold(const std::string value);
 WotoMd *get_underline(const std::string value);
 WotoMd *get_hyperlink(const std::string text, const std::string url);
