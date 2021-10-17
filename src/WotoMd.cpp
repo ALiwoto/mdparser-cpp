@@ -16,8 +16,7 @@
  * from ALi woto.
  */
 
-#ifndef MDPARSER__WOTOMD_CPP
-#define MDPARSER__WOTOMD_CPP
+#pragma once
 
 #include <iostream>
 #include "WotoMd.h"
@@ -204,5 +203,3 @@ WotoMd *get_usermention(const std::string text, const long long id) {
 #pragma endregion
 
 //---------------------------------------------------------
-
-#endif /* MDPARSER__WOTOMD_CPP */

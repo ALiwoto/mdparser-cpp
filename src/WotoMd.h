@@ -17,9 +17,7 @@
  */
 
 
-
-#ifndef MDPARSER__WOTOMD_H
-#define MDPARSER__WOTOMD_H
+#pragma once
 
 #include <iostream>
 
@@ -206,4 +204,3 @@ WotoMd *get_underline(const std::string value);
 WotoMd *get_hyperlink(const std::string text, const std::string url);
 WotoMd *get_usermention(const std::string text, const long long id);
 
-#endif /* MDPARSER__WOTOMD_H */
