@@ -16,7 +16,7 @@ int main(void)
 	assert(toUnderline("-A-A-A-A-A-A") == "-\\-A\\-A\\-A\\-A\\-A\\-A-");
 
 	assert(toUnderline("AAAAAA", true) == "-AAAAAA- ");
-	assert(toUnderline("-A-A-A-A-A-A") == "-\\-A\\-A\\-A\\-A\\-A\\-A- ");
+	assert(toUnderline("-A-A-A-A-A-A", true) == "-\\-A\\-A\\-A\\-A\\-A\\-A- ");
 
 	return 0;
 }
