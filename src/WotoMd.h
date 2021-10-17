@@ -19,7 +19,7 @@
 
 #pragma once
 
-#include <iostream>
+#include <string>
 
 
 static __always_inline bool IsSpecial(const char value)
