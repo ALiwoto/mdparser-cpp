@@ -16,8 +16,10 @@
  * from ALi woto.
  */
 
+#pragma once
 
 #include <string>
+
 namespace mdparser
 {
 
@@ -173,6 +175,9 @@ class WotoMd {
 				  const bool space) const;
 	WotoMd *AppendUnderline(const std::string value) const;
 	WotoMd *AppendUnderline(const std::string value, const bool space) const;
+	WotoMd *Endl() const;
+	WotoMd *Space() const;
+	WotoMd *Space(const int count) const;
 
 	WotoMd *AppendThis(const WotoMd *value);
 	WotoMd *AppendNormalThis(const std::string value);
@@ -191,6 +196,9 @@ class WotoMd {
 				      const bool space);
 	WotoMd *AppendUnderlineThis(const std::string value);
 	WotoMd *AppendUnderlineThis(const std::string value, const bool space);
+	WotoMd *EndlThis();
+	WotoMd *SpaceThis();
+	WotoMd *SpaceThis(const int count);
 
 	std::string ToString() const;
 	WotoMd *Clear();

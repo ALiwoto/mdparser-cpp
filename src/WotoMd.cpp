@@ -147,6 +147,25 @@ WotoMd *WotoMd::AppendUnderline(const std::string value, const bool space) const
 	return new WotoMd(this->_value + toUnderline(value, space));
 }
 
+
+/// Appends a new line to the current value of this object and returns 
+/// itself.
+WotoMd *WotoMd::Endl() const {
+	return this->AppendNormal("\n");
+}
+
+/// Appends a new line to the current value of this object and returns 
+/// itself.
+WotoMd *WotoMd::Space() const {
+	return this->AppendNormal(" ");
+}
+
+/// Appends a new line to the current value of this object and returns 
+/// itself.
+WotoMd *WotoMd::Space(const int count) const {
+	return this->AppendNormal(std::string(count, ' '));
+}
+
 /// Appends a WotoMd object to the current object.
 WotoMd *WotoMd::AppendThis(const WotoMd *value) {
 	if (value != NULL)
@@ -250,10 +269,29 @@ WotoMd *WotoMd::AppendUnderlineThis(const std::string value, const bool space) {
 	return this;
 }
 
+/// Appends a new line to the current value of this object and returns 
+/// itself.
+WotoMd *WotoMd::EndlThis() {
+	return this->AppendNormalThis("\n");
+}
+
+/// Appends a new line to the current value of this object and returns 
+/// itself.
+WotoMd *WotoMd::SpaceThis() {
+	return this->AppendNormalThis(" ");
+}
+
+/// Appends a new line to the current value of this object and returns 
+/// itself.
+WotoMd *WotoMd::SpaceThis(const int count) {
+	return this->AppendNormal(std::string(count, ' '));
+}
+
 /// Converts the current WotoMd object to string value.
 std::string WotoMd::ToString() const {
 	return this->_value;
 }
+
 
 //---------------------------------------------------------
 
