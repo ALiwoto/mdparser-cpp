@@ -16,25 +16,29 @@
  * from ALi woto.
  */
 
-#pragma once
 
 #include <iostream>
 #include "WotoMd.h"
 
 //---------------------------------------------------------
 
-#pragma region WotoMd methods region
+namespace mdparser
+{
 
+/// Creates an empty WotoMd object.
 WotoMd::WotoMd()
 {
 
 }
 
+/// Creates a new instance of WotoMd with the given string value.
 WotoMd::WotoMd(const std::string value)
 {
 	this->_value = value;
 }
 
+/// Appends a WotoMd object to the current object and return a new
+/// WotoMd object.
 WotoMd *WotoMd::Append(const WotoMd *value) const {
 	if (value == NULL)
 	{
@@ -43,16 +47,21 @@ WotoMd *WotoMd::Append(const WotoMd *value) const {
 	return new WotoMd(this->_value + value->_value);
 }
 
-
+/// Appends a normal string to the current object and return a new
+/// WotoMd object.
 WotoMd *WotoMd::AppendNormal(const std::string value) const {
 	return new WotoMd(this->_value + toNormal(value));
 }
 
-
+/// Appends a normal string to the current object and return a new
+/// WotoMd object.
+/// Pass true to second parameter to append a space at the end of the string.
 WotoMd *WotoMd::AppendNormal(const std::string value, const bool space) const {
 	return new WotoMd(this->_value + toNormal(value, space));
 }
 
+/// Appends an italic string to the current object and return a new
+/// WotoMd object.
 WotoMd *WotoMd::AppendItalic(const std::string value) const {
 	return new WotoMd(this->_value + toItalic(value));
 }
@@ -61,6 +70,8 @@ WotoMd *WotoMd::AppendItalic(const std::string value, const bool space) const {
 	return new WotoMd(this->_value + toItalic(value, space));
 }
 
+/// Appends a mono string to the current object and return a new
+/// WotoMd object.
 WotoMd *WotoMd::AppendMono(const std::string value) const {
 	return new WotoMd(this->_value + toMono(value));
 }
@@ -69,6 +80,8 @@ WotoMd *WotoMd::AppendMono(const std::string value, const bool space) const {
 	return new WotoMd(this->_value + toMono(value, space));
 }
 
+/// Appends a bold string to the current object and return a new
+/// WotoMd object.
 WotoMd *WotoMd::AppendBold(const std::string value) const {
 	return new WotoMd(this->_value + toBold(value));
 }
@@ -77,16 +90,20 @@ WotoMd *WotoMd::AppendBold(const std::string value, const bool space) const {
 	return new WotoMd(this->_value + toBold(value, space));
 }
 
-
+/// Appends a hyper link string to the current object and return a new
+/// WotoMd object.
 WotoMd *WotoMd::AppendHyperLink(const std::string text, const std::string url) const {
 	return new WotoMd(this->_value + toHyperLink(text, url));
 }
+
 
 WotoMd *WotoMd::AppendHyperLink(const std::string text, const std::string url,
 	const bool space) const {
 	return new WotoMd(this->_value + toHyperLink(text, url, space));
 }
 
+/// Appends a user mention string to the current object and return a new
+/// WotoMd object.
 WotoMd *WotoMd::AppendUserMention(const std::string text, long long id) const {
 	return new WotoMd(this->_value + toUserMention(text, id));
 }
@@ -189,11 +206,7 @@ std::string WotoMd::ToString() const {
 	return this->_value;
 }
 
-#pragma endregion
-
 //---------------------------------------------------------
-
-#pragma region get functions
 
 WotoMd *get_normal(const std::string value) {
 	return new WotoMd(toNormal(value));
@@ -223,6 +236,4 @@ WotoMd *get_usermention(const std::string text, const long long id) {
 	return new WotoMd(toUserMention(text, id));
 }
 
-#pragma endregion
-
-//---------------------------------------------------------
+} // namespace mdparser

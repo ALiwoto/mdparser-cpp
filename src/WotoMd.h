@@ -20,7 +20,8 @@
 #pragma once
 
 #include <iostream>
-
+namespace mdparser
+{
 
 static __always_inline bool IsSpecial(const char value)
 {
@@ -194,6 +195,7 @@ class WotoMd {
 	WotoMd *AppendUnderlineThis(const std::string value, const bool space);
 
 	std::string ToString() const;
+	WotoMd *Clear();
 
 	private:
 	std::string _value;
@@ -209,3 +211,4 @@ WotoMd *get_underline(const std::string value);
 WotoMd *get_hyperlink(const std::string text, const std::string url);
 WotoMd *get_usermention(const std::string text, const long long id);
 
+} // namespace mdparser
